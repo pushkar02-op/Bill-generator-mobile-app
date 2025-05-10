@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.eggs/
+dist/
+build/
+sdist/
+*.egg-info/
+*.deb
+*.rpm
+tmp*
+
+# Environments
+.venv
+venv
+env
+ENV
+*.log
+
+# PyInstaller
+#  Often these are written into a temporary directory by the build process;
+#  let's ignore them by default.
+_MEI*
+
+# IDEs and editors
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS generated files
+.DS_Store
