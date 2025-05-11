@@ -19,6 +19,7 @@ class BillApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bill Generator',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
         scaffoldBackgroundColor: Colors.grey[50],
@@ -45,7 +46,7 @@ class BillApp extends StatelessWidget {
 class BillHomePage extends StatefulWidget {
   const BillHomePage({super.key});
   @override
-  _BillHomePageState createState() => _BillHomePageState();
+  State<BillHomePage> createState() => _BillHomePageState();
 }
 
 class _BillHomePageState extends State<BillHomePage> {
