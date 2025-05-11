@@ -3,6 +3,7 @@ from datetime import datetime
 import json
 import pandas as pd
 from pathlib import Path
+from bill.pdf_generator import generate_pdf_bill
 
 from bill.excel_custom_generator import generate_excel_bill
 from utils.invoice_tracker import get_next_invoice_number
@@ -84,6 +85,11 @@ def main():
             # 5) generate
             generate_excel_bill(run_meta, filename=str(out_path))
             print(f"Generated: {out_path}")
+            
+            # 6) generate PDF
+            pdf_out_path = out_path.with_suffix(".pdf")
+            generate_pdf_bill(run_meta, filename=str(pdf_out_path))
+            print(f"Generated PDF: {pdf_out_path}")
 
 if __name__ == "__main__":
     main()

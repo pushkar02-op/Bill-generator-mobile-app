@@ -1,16 +1,13 @@
+# bill/pdf_generator.py
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib import colors
 from reportlab.lib.styles import  ParagraphStyle
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle  
 from reportlab.lib.enums import TA_LEFT, TA_CENTER
 
-def generate_pdf_bill(data: dict, out_path: str) -> str:
-    """
-    Generates a PDF invoice at out_path, using the same layout as the Excel version.
-    Returns the PDF file path.
-    """
-    # Create PDF document in landscape A4
-    doc = SimpleDocTemplate(out_path, pagesize=landscape(A4), rightMargin=10, leftMargin=10, topMargin=10, bottomMargin=10)
+
+def generate_pdf_bill(data: dict, filename: str):
+    doc = SimpleDocTemplate(filename, pagesize=landscape(A4), rightMargin=10, leftMargin=10, topMargin=10, bottomMargin=10)
     story = []
 
     page_width = landscape(A4)[0] - 10 - 10
@@ -328,4 +325,3 @@ def generate_pdf_bill(data: dict, out_path: str) -> str:
 
     # === Final PDF generation ===
     doc.build(story)
-    return out_path

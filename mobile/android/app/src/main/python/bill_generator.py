@@ -6,6 +6,8 @@ import pandas as pd
 from openpyxl import Workbook
 from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
+from pdf_generator import generate_pdf_bill
+from openpyxl.worksheet.page import PageMargins
 
 BASE_DIR      = Path(__file__).parent
 COUNTER_FILE  = BASE_DIR / "invoice_counter.json"
@@ -98,7 +100,9 @@ def generate_bill(input_path: str, place: str) -> str:
 
     # Build the Excel
     _create_excel(bill_data, out_path)
-    return str(out_path)
+    pdf_path = str(out_path.with_suffix(".pdf"))
+    generate_pdf_bill(bill_data, pdf_path)
+    return json.dumps({"excel": str(out_path), "pdf": pdf_path})
 
 def _create_excel(data: dict, out_path: Path):
     wb = Workbook()
@@ -276,7 +280,13 @@ def _create_excel(data: dict, out_path: Path):
     signature_cell.font = Font(bold=True, size=8)
     signature_cell.alignment = Alignment(horizontal="left", vertical="center")
 
-
+    # — PRINT PREVIEW: A4 landscape, fit to width, custom margins —
+    ws.page_setup.paperSize   = ws.PAPERSIZE_A4
+    ws.page_setup.orientation = ws.ORIENTATION_LANDSCAPE
+    ws.page_setup.fitToWidth  = 1
+    ws.page_setup.fitToHeight = False
+    ws.page_margins = PageMargins(left=0.5, right=0.5, top=0.75, bottom=0.75)
+    ws.print_area = f"A1:{get_column_letter(ws.max_column)}{ws.max_row}"
 
     # — SAVE —
     wb.save(out_path)

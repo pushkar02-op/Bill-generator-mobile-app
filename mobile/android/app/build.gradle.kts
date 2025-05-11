@@ -54,6 +54,7 @@ chaquopy {
                 // Ensure these libraries are compatible with Chaquopy
                 install("pandas")
                 install("openpyxl")
+                install("reportlab>=3.6.0")
             }
         }
 }

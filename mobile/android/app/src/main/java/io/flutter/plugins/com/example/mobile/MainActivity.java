@@ -43,7 +43,7 @@ public class MainActivity extends FlutterActivity {
                 try {
                     // Call your Python function
                     PyObject output = module.callAttr("generate_bill", inputPath, place);
-                    result.success(output.toString());
+                    result.success(output.toString());;
                 } catch (Exception e) {
                     result.error("PY_ERROR", e.getMessage(), null);
                 }
