@@ -1,0 +1,14 @@
+{
+  "GST": "10AACFY8913A1ZN",
+  "vendor_code": "198049",
+  "Bhagalpur": {
+    "bill_to": "MOONSTONE VENTURES LLP\nRAJBAR ADAMPUR,THANA-KOYWALI,WARDNO-5,\nHOLDING NO-54,KHATA NO-81,SK TARFDAR ROAD BHAGALPUR-812001",
+    "place_of_supply": "MOONSTONE VENTURES LLP\nRAJBAR ADAMPUR,THANA-KOYWALI,WARDNO-5,\nHOLDING NO-54,KHATA NO-81,SK TARFDAR ROAD BHAGALPUR-812001",
+    "site_code": "ES1"
+  },
+  "Begusarai": {
+    "bill_to": "MOONSTONE VENTURES LLP\nKhata No. - 11,17,25- Khasra - 89,90,91,92,93 ,\nTauzi No-846, Jamabandi No- 94,95,96, Thana No-379,\nAt Power house road, Inside Mithila cold storage, Begusarai-851101 Begusarai 851101",
+    "place_of_supply": "MOONSTONE VENTURES LLP\nKhata No. - 11,17,25- Khasra - 89,90,91,92,93 ,\nTauzi No-846, Jamabandi No- 94,95,96, Thana No-379,\nAt Power house road, Inside Mithila cold storage, Begusarai-851101 Begusarai 851101",
+    "site_code": "ES20"
+  }
+}
