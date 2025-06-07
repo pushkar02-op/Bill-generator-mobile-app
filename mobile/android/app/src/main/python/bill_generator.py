@@ -10,16 +10,19 @@ from pdf_generator import generate_pdf_bill
 from openpyxl.worksheet.page import PageMargins
 
 BASE_DIR      = Path(__file__).parent
-COUNTER_FILE  = BASE_DIR / "invoice_counter.json"
+
+COUNTER_FILE  = Path("/sdcard/Documents/bills") / "invoice_counter.json"
 METADATA_FILE = BASE_DIR / "metadata.json"
 
 def _get_next_invoice_number() -> int:
-    data = {"last_invoice": 1000}
-    if COUNTER_FILE.exists():
-        data = json.loads(COUNTER_FILE.read_text())
+    if not COUNTER_FILE.exists():
+        COUNTER_FILE.write_text(json.dumps({"last_invoice": 1150}))
+    
+    data = json.loads(COUNTER_FILE.read_text())
     next_inv = data["last_invoice"] + 1
     COUNTER_FILE.write_text(json.dumps({"last_invoice": next_inv}))
     return next_inv
+
 
 def _extract_po_and_date(filename: str) :
     """
